@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout()</title>
+
+    <script type="text/javascript">
+        function myFunction() {
+            setTimeout(displayFunction,5000);
+        }
+        function displayFunction(){
+            alert("Time out");
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <p>Click to set The Time Out</p>
+    <input type="button" value="Set Time Out" onclick="myFunction();"/>
+</body>
+
+</html>
