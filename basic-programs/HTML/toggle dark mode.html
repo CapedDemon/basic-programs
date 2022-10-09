@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <style>
+    body {
+      padding: 25px;
+      background-color: white;
+      color: black;
+      font-size: 25px;
+    }
+
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+
+    #h4 {
+      font: 50px 'Courier New', Courier, monospace;
+      font-style: oblique;
+      background: mediumseagreen;
+      border: 4px black solid;
+    }
+
+    p {
+      font-family: 'Ubuntu', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 33px;
+      /* 1/96th of an inch */
+      line-height: 1.3em;
+    }
+
+    span {
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    #firstPara {
+      background-color: rgb(146, 194, 178);
+      border: 5px solid rgb(128, 82, 82);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Toggle Dark/Light Mode</h2>
+  <p>Click the button to toggle between dark and light mode for this page.</p>
+  <h4 id="h4">CSS Fonts</h4>
+  <p id="firstPara">Lets play with <span>fonts</span>. It is very exciting</p>
+
+  <h2 class="container"> This is the second heading.</h2>
+
+  <button onclick="myFunction()">Toggle dark mode</button>
+
+  <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+
+</html>

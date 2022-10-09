@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+</head>
+<body>
+  <div class="container">
+      <form action="" method="GET">
+          <h1>Payment Form</h1>
+          <h2>User Information</h2>
+          <p>Name:* 
+              <input type="text" required name="name" placeholder="Enter your name">
+          </p>   
+          <p>
+              <fieldset>
+                  <legend>Gender</legend>
+                  Male <input type="radio" name="gender" id="male" >
+              </fieldset>
+          </p>   
+          <p>Address:
+              <textarea placeholder="Enter your Address" name="address" id="address"></textarea>
+          </p>
+          <p>
+              Email:
+              <input type="email" name="email" id="email" required placeholder="Enter your email">
+          </p>
+          <p>
+              Pincode:
+              <input type="number" name="pincode" id="pincode" placeholder="Enter your pincode">
+          </p>
+          <h2>Payment Information</h2>
+          <p>Card Type:
+              <select name="card_type" id="card_type" required>
+                  <option value="visa">Visa</option>
+                  <option value="mastercard">Mastercard</option>
+                  <option value="rupay">Rupay</option>
+              </select>
+          </p>
+
+
+        </form>
+  </div>  
+</body>
+</html>
