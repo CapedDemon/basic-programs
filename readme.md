@@ -1,6 +1,6 @@
 Add your programs you made while learning new programming languages
 <div align="centre">
-    <b>dont contribute in this repo, contribute only in below mentioned repo</b>
+  
 </div>
 
 # Special Note For Everyone
