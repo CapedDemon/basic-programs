@@ -14,4 +14,12 @@ def quicksort(array):
             items_lower.append(item)
     return quicksort(items_lower) + [pivot] + quicksort(items_greater)
 
-print(quicksort([3, 5, 1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]))
+lst = [ ]
+n = int(input("Enter number of elements : "))
+  
+for i in range(0, n):
+    element =int(input("enter value:"))
+    lst.append(element)
+      
+print("list before sorting",lst)
+print(quicksort(lst))
