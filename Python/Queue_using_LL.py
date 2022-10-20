@@ -29,11 +29,19 @@ class Queue:
             print(temp.data)
             temp = temp.next
 
-x = Queue() # Creating object of queue class
-x.enqueue(1) # Add 1 to the queue
-x.enqueue(2)# Add 2 to the queue
+x = Queue()
+# Creating object of queue class
+# take use input if you want to enter element in queue
+check=int(input("enter 1 if you want to insert element in the queue else enter any other number"))
+while check==1:
+    insert=int(input("enter element in queue"))
+    x.enqueue(insert) # Add element to the queue
+    check=int(input("enter 1 if you want to insert element in the queue else enter any other number"))
+
 x.display() # 1 => 2
-print(x.dequeue()) # Deleting the first element of the queue.
-x.display() # 2
-print(x.dequeue()) # 2
-print(x.dequeue()) # None(because queue is already empty)
+#delete element from queue
+f=int(input("enter 1 if you want to delete element in the queue else enter any other number"))
+while f==1:
+    x.dequeue()
+    f=int(input("enter 1 if you want to delete element in the queue else enter any other number"))
+x.display() 
