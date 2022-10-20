@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic-Equation</title>
+    <style>
+        div{
+            display: flex;
+            flex-direction: column;
+            margin: 40px auto 0 auto;
+            width: 200px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+    </style>
+   
+</head>
+
+<body>
+    <h1>QUADRATIC EQUATION!</h1>
+    <div>
+        <input class="a" type="text" placeholder="Enter value a">
+        <input class="b" type="text" placeholder="Enter value b">
+        <input class="c" type="text" placeholder="Enter value c">
+        <button class="button">Do the math!</button>
+    </div>
+    <script lang="javascript" type="text/javascript">
+
+        document.querySelector('.button').addEventListener('click', quadraticFormula)
+
+        function quadraticFormula() {
+            
+            let a = document.querySelector('.a').value
+            let b = document.querySelector('.b').value
+            let c = document.querySelector('.c').value
+            let x1 = (-Math.abs(b) + Math.sqrt(b**2 - 4*a*c))/(2*a);
+            let x2 = (-Math.abs(b) - Math.sqrt(b**2 - 4*a*c))/(2*a);
+            alert([`x1=${Number(x1).toFixed(3)}\nx2=${Number(x2).toFixed(3)}`])
+        }
+    </script>
+</body>
+
+</html>
