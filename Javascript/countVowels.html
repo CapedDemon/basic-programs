@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening multiple windows</title>
+
+    <script type="text/javascript">
+        let input = prompt('Type out your sentence:')
+        if((input.match(/[aeiou]/gi) || []).length === 1){
+            alert('There is ' +(input.match(/[aeiou]/gi) || []).length +' vowel in your sentence!')
+        }else if((input.match(/[aeiou]/gi) || []).length > 1){
+        alert('There are ' +(input.match(/[aeiou]/gi) || []).length +' vowels in your sentence!')
+        }else{
+            alert('There are no vowels in your sentence.')
+        }
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>
+

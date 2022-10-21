@@ -1,0 +1,345 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int key;
+    struct node *left;
+    struct node *right;
+};
+typedef struct node Node;
+
+void insert(Node **T, int k);
+
+void inorder(Node *T);
+void preorder(Node *T);
+void postorder(Node *T);
+
+void display(Node *T);
+void display1(Node *T);
+void display2(Node *T);
+int height(Node *T);
+int main()
+{
+    int ch,h;
+    int k;
+    Node *T=NULL;
+    while(1) {
+        printf("0: exit\n");
+        printf("1: insert\n");
+        printf("2: delete\n");
+        printf("3: display\n");
+        printf("4: level order traversal\n");
+        printf("5: in order traversal\n");
+        printf("6: pre order traversal\n");
+        printf("7: post order traversal\n");
+        printf("8: height of the tree\n");
+        printf("Enter your choice: ");
+        scanf("%d",&ch);
+        switch(ch) {
+            case 0: return(0);
+            case 1:
+                printf("Enter a key: ");
+                scanf("%d",&k);
+                insert(&T,k);
+                printf("\n\n");
+                break;
+            case 3:
+                display(T);
+                printf("\n\n");
+                break;
+            case 5:
+                display(T);
+                printf("inorder:  ");
+                inorder(T);
+                printf("\n\n");
+                break;
+            case 6:
+                display(T);
+                printf("preorder:  ");
+                preorder(T);
+                printf("\n\n");
+                break;
+            case 7:
+                display(T);
+                printf("postorder:  ");
+                postorder(T);
+                printf("\n\n");
+                break;
+            case 8:
+                h=height(T);
+                printf("height=%d\n",h);
+                printf("\n\n");
+                break;
+            default:
+                printf("Enter a valid choice\n");
+        }
+    }
+    return 0;
+}
+
+void insert(Node **T,int k)
+{
+    /**Create a new node **/
+    Node *n;
+    n= (Node*) malloc(sizeof(Node));
+    n->key=k;
+    n->left=NULL;
+    n->right=NULL;
+    /**************************/
+
+    /**For empty tree new node is the root node **/
+    if(*T==NULL) {
+        *T=n;
+        return;
+    }
+    /**************************/
+
+    /**Find Parent of new node **/
+    Node *t=*T, *par=NULL;
+    while(t != NULL) {
+        par=t;
+        if(k < t->key) {
+            t=t->left;
+        }
+        else {
+            t=t->right;
+        }
+    }
+    /**************************/
+
+    /**Insert the new node **/
+    if(k < par->key) {
+        par->left=n;
+    }
+    else {
+        par->right=n;
+    }
+    /**************************/
+}
+
+void inorder(Node *T)
+{
+    if(T!=NULL) {
+        inorder(T->left);
+        printf("%d  ",T->key);
+        inorder(T->right);
+    }
+}
+void preorder(Node *T)
+{
+    if(T!=NULL) {
+        printf("%d  ",T->key);
+        preorder(T->left);
+        preorder(T->right);
+    }
+}
+void postorder(Node *T)
+{
+    if(T!=NULL) {
+        postorder(T->left);
+        postorder(T->right);
+        printf("%d  ",T->key);
+    }
+}
+
+void display(Node *T)
+{
+    int h=height(T);
+    switch(h) {
+        case 0:
+            printf("   %d\n",T->key);
+            break;
+        case 1:
+            display1(T);
+            break;
+        case 2:
+            display2(T);
+            break;
+        default:
+            printf("display with height %d is not supported\n",h);
+    }
+}
+int height(Node *T)
+{
+    if(T==NULL) {
+        return 0;
+    }
+    else if(T->left == NULL && T->right==NULL) {
+        return 0;
+    }
+    else {
+        int l=height(T->left);
+        int r=height(T->right);
+        if(l>r) return (l+1);
+        else return (r+1);
+    }
+}
+void display1(Node *T)
+{
+    printf("         %d\n",T->key);
+    if(T->left !=NULL && T->right!=NULL) {
+        printf("        /  \\\n");
+        printf("       /    \\\n");
+        printf("     %d      %d\n",T->left->key,T->right->key);
+    }
+    else if(T->left !=NULL) {
+        printf("        /\n");
+        printf("       /\n");
+        printf("     %d\n",T->left->key);
+    }
+    else {
+        printf("          \\\n");
+        printf("           \\\n");
+        printf("            %d\n",T->right->key);
+    }
+}
+void display2(Node *T)
+{
+    printf("               %d\n",T->key);
+    if(T->left !=NULL && T->right!=NULL) {
+        printf("              /   \\\n");
+        printf("             /     \\\n");
+        printf("            /       \\\n");
+        printf("          %d         %d\n",T->left->key,T->right->key);
+        Node *T1=T->left;
+        Node *T2=T->right;
+        if(T1->left !=NULL && T1->right!=NULL && T2->left !=NULL && T2->right!=NULL)
+        {
+            printf("         /  \\       /  \\\n");
+            printf("        /    \\     /    \\\n");
+            printf("       %d     %d   %d     %d\n",T1->left->key,T1->right->key,T2->left->key,T2->right->key);
+        }
+        else if(T1->left !=NULL && T1->right!=NULL && T2->left !=NULL && T2->right==NULL) {
+            printf("         /  \\       /\n");
+            printf("        /    \\     /\n");
+            printf("       %d     %d   %d\n",T1->left->key,T1->right->key,T2->left->key);
+        }
+        else if(T1->left !=NULL && T1->right!=NULL && T2->left ==NULL && T2->right!=NULL)
+        {
+            printf("         /  \\          \\\n");
+            printf("        /    \\          \\\n");
+            printf("       %d     %d         %d\n",T1->left->key,T1->right->key,T2->right->key);
+        }
+        else if(T1->left !=NULL && T1->right!=NULL && T2->left ==NULL && T2->right==NULL)
+        {
+            printf("         /  \\\n");
+            printf("        /    \\\n");
+            printf("       %d     %d\n",T1->left->key,T1->right->key);
+        }
+        else if(T1->left !=NULL && T1->right==NULL && T2->left !=NULL && T2->right!=NULL)
+        {
+            printf("         /          /  \\\n");
+            printf("        /          /    \\\n");
+            printf("       %d         %d     %d\n",T1->left->key,T2->left->key,T2->right->key);
+        }
+        else if(T1->left !=NULL && T1->right==NULL && T2->left !=NULL && T2->right==NULL)
+        {
+            printf("         /          /\n");
+            printf("        /          /\n");
+            printf("       %d         %d\n",T1->left->key,T2->left->key);
+        }
+        else if(T1->left !=NULL && T1->right==NULL && T2->left ==NULL && T2->right!=NULL)
+        {
+            printf("         /             \\\n");
+            printf("        /               \\\n");
+            printf("       %d                %d\n",T1->left->key,T2->right->key);
+        }
+        else if(T1->left !=NULL && T1->right==NULL && T2->left ==NULL && T2->right==NULL)
+        {
+            printf("         /\n");
+            printf("        /\n");
+            printf("       %d\n",T1->left->key);
+        }
+        else if(T1->left ==NULL && T1->right!=NULL && T2->left !=NULL && T2->right!=NULL)
+        {
+            printf("            \\       /  \\\n");
+            printf("             \\     /    \\\n");
+            printf("              %d   %d     %d\n",T1->right->key,T2->left->key,T2->right->key);
+        }
+        else if(T1->left ==NULL && T1->right!=NULL && T2->left !=NULL && T2->right==NULL)
+        {
+            printf("            \\       /\n");
+            printf("             \\     /\n");
+            printf("              %d  %d\n",T1->right->key,T2->left->key);
+        }
+        else if(T1->left ==NULL && T1->right!=NULL && T2->left ==NULL && T2->right!=NULL)
+        {
+            printf("            \\          \\\n");
+            printf("             \\          \\\n");
+            printf("              %d         %d\n",T1->right->key,T2->right->key);
+        }
+        else if(T1->left ==NULL && T1->right!=NULL && T2->left ==NULL && T2->right==NULL)
+        {
+            printf("            \\\n");
+            printf("             \\\n");
+            printf("              %d\n",T1->right->key);
+        }
+        else if(T1->left ==NULL && T1->right==NULL && T2->left !=NULL && T2->right!=NULL)
+        {
+            printf("                    /  \\\n");
+            printf("                   /    \\\n");
+            printf("                  %d     %d\n",T2->left->key,T2->right->key);
+        }
+        else if(T1->left ==NULL && T1->right==NULL && T2->left !=NULL && T2->right==NULL)
+        {
+            printf("                    /\n");
+            printf("                   /\n");
+            printf("                  %d\n",T2->left->key);
+        }
+        else if(T1->left ==NULL && T1->right==NULL && T2->left ==NULL && T2->right!=NULL)
+        {
+            printf("                      \\\n");
+            printf("                       \\\n");
+            printf("                        %d\n",T2->right->key);
+        }
+    }
+    else if(T->left != NULL && T->right == NULL) {
+        printf("              /\n");
+        printf("             /\n");
+        printf("            /\n");
+        printf("          %d\n",T->left->key);
+        Node *T1=T->left;
+        if(T1->left !=NULL && T1->right!=NULL)
+        {
+            printf("         /  \\\n");
+            printf("        /    \\\n");
+            printf("       %d     %d\n",T1->left->key,T1->right->key);
+        }
+        else if(T1->left !=NULL && T1->right==NULL) {
+            printf("         /\n");
+            printf("        /\n");
+            printf("       %d\n",T1->left->key);
+        }
+        else if(T1->left ==NULL && T1->right!=NULL)
+        {
+            printf("            \\\n");
+            printf("             \\\n");
+            printf("              %d\n",T1->right->key);
+        }
+    }
+    else if(T->left == NULL && T->right != NULL) {
+        printf("                 \\\n");
+        printf("                  \\\n");
+        printf("                   \\\n");
+        printf("                    %d\n",T->right->key);
+        Node *T2=T->right;
+        if(T2->left !=NULL && T2->right!=NULL)
+        {
+            printf("                   /  \\\n");
+            printf("                  /    \\\n");
+            printf("                 %d     %d\n",T2->left->key,T2->right->key);
+        }
+        else if(T2->left !=NULL && T2->right==NULL) {
+            printf("                   /\n");
+            printf("                  /\n");
+            printf("                 %d\n",T2->left->key);
+        }
+        else if(T2->left ==NULL && T2->right!=NULL)
+        {
+            printf("                      \\\n");
+            printf("                       \\\n");
+            printf("                        %d\n",T2->right->key);
+        }
+    }
+}
