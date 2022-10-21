@@ -1,0 +1,39 @@
+#include <stdlib.h>
+#include <math.h>
+struct roots
+{
+    double first;
+    double second;
+};
+struct roots Quadratic(int *a, int *b, int *c);
+int main()
+{
+    printf("Enter the coefficient of x square: ");
+    int a;
+    scanf("%d", &a);
+    printf("\nEnter the coefficient of x: ");
+    int b;
+    scanf("%d", &b);
+    printf("\nEnter the value of the constant term: ");
+    int c;
+    scanf("%d", &c);
+    struct roots root = Quadratic(&a, &b, &c);
+    printf("\nThe roots are: %f and %f", root.first, root.second);
+}
+struct roots Quadratic(int *a, int *b, int *c)
+{
+    float d = (*b) * (*b) - 4 * (*a) * (*c);
+    if (d < 0)
+    {
+        printf("\nThe roots are imaginary");
+        exit(0);
+    }
+    else
+    {
+        d = sqrtf(d);
+        struct roots root;
+        root.first = (-(*b) - d) / (2 * (*a));
+        root.second = (d - (*b)) / (2 * (*a));
+        return root;
+    }
+}
