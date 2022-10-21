@@ -3,7 +3,7 @@
 public class BinarySearch
 {
     // Returns index of x if it is present in arr[l..r], else return -1
-    private static int binarySearch(int[] arr, int l, int r, int x)
+    private static int BinarySearch(int[] arr, int l, int r, int x)
     {
         if (r >= l)
         {
@@ -26,7 +26,7 @@ public class BinarySearch
         int[] arr = { 3, 4, 45, 11, 41 };
         var n = arr.Length;
         var x = 11;
-        var result = binarySearch(arr, 0, n - 1, x);
+        var result = BinarySearch(arr, 0, n - 1, x);
         if (result == -1)
             Console.WriteLine("Element not present");
         else
