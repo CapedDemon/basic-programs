@@ -6,14 +6,11 @@ Add your programs you made while learning new programming languages
 # Special Note For Everyone
 ```py
 '''
-always make more then 4 pull request
-lets you have made only 4 pull request to different projects
-but one project is excluded from hackoctoberfest event then your pull request will not be count and 
-then you have remains 3 valid pull request if these projects is not excluded.
-if you fail to make 4 pull request then you cant get swags or t-shirts.
-
-i will recommend you make pull request to your own repo which is very very saffest side for you..
-keep in mind that repo has hacktoberfest topic..
+Always make more than 4 Pull Requests for Hacktoberfest.
+Let's say you have made only 4 Pull Requests to different projects and one project gets excluded from Hacktoberfest event.
+In that case, your Pull Request to the excluded repository will not count and you have to search for even more repos to contribute to.
+If you fail to make 4 valid Pull Requests by the end of October, then you cannot get swags or t-shirts.
+Before contributing, check if the repo has hacktoberfest topic and that the repo is not excluded from Hacktoberfest.
 '''
 ```
 # ✨Hacktoberfest 2022✨
@@ -49,7 +46,13 @@ A Simple😉 beginner friendly😊 Repo for all programmers and coders. All cont
 ## What is Hacktoberfest?
 - A month-long celebration from October 1st - 31st sponsored by Digital Ocean and GitHub to get people involved in Open Source. Create your very first pull request to any public repository on GitHub and contribute to the open source developer community.
 
-https://hacktoberfest.digitalocean.com/
+ - Register for Hacktoberfest [here](https://hacktoberfest.digitalocean.com/).
+
+* Always make more than 4 Pull Requests for Hacktoberfest.
+* Let's say you have made only 4 Pull Requests to different projects and one project gets excluded from Hacktoberfest event.
+* In that case, your Pull Request to the excluded repository will not count and you have to search for even more repos to contribute to.
+* If you fail to make 4 valid Pull Requests by the end of October, then you cannot get swags or t-shirts.
+* Before contributing, check if the repo has hacktoberfest topic and that the repo is not excluded from Hacktoberfest.
 
 ***
 
