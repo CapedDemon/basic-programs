@@ -7,10 +7,10 @@ fun main(args: Array<String>) {
     val operator = readLine()
 
     val result = when (operator) {
-        "+" -> a + b
-        "-" -> a - b
-        "*" -> a * b
-        "/" -> a / b
+        "+" -> a + b //addition
+        "-" -> a - b //subtraction
+        "*" -> a * b //multiplication
+        "/" -> a / b //division
         else -> "$operator operator is invalid operator."
     }
 
